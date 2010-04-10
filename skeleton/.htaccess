@@ -1,0 +1,3 @@
+RewriteBase /opendatanow/
+
+RewriteRule ^octranspo/stop-times/?$ http://www.gtfs-data-exchange.com/agency/oc-transpo/

@@ -7,7 +7,7 @@ Package: opendatanow-deps
 # Version: <enter version here; defaults to 1.0>
 # Maintainer: Your Name <yourname@example.com>
 # Pre-Depends: <comma-separated list of packages>
-Depends: python2.6
+Depends: python2.6, rsync
 # Recommends: <comma-separated list of packages>
 # Suggests: <comma-separated list of packages>
 # Provides: <comma-separated list of packages>
