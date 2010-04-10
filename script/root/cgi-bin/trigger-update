@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-if os.environ.get("REQUEST_METHOD') == "POST":
+if os.environ.get("REQUEST_METHOD") == "POST":
 	open("/tmp/opendatanow-trigger-fifo", "r+").close()
 
 	print "Content-type: text/html; charset=UTF-8"
