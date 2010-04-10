@@ -13,8 +13,10 @@ Why?
 At one of the Open Data Ottawa events in April, it became apparent that people
 working on different projects had all written their own screen scrapers, and
 many people had neat ideas but were lacking the data necessary to make them
-reality.  Our hope with OpenDataNow is to help the community **spend less time
-writing screen scrapers and more time doing awesome stuff**.
+reality.
+
+Our hope is that OpenDataNow will help the community **spend less time writing
+screen scrapers and more time doing awesome stuff**.
 
 Where can I find...
 -------------------
@@ -22,6 +24,48 @@ Where can I find...
 - The data: <http://repo.opendatanow.ca/>
 - The GitHub repository: <http://github.com/dlitz/opendatanow>
 - Open Data Ottawa: <http://www.opendataottawa.ca/>
+
+How does it work?
+-----------------
+
+OpenDataNow is really just a bunch of scripts that run on a server running
+Debian GNU/Linux (sid).  Scripts can be written in Ruby, Python, Java, or
+whatever, as long as it can be made to run in this environment.
+
+Whenever changes are pushed to the GitHub repository, the server automatically
+runs "script/stop", kills any running processes, pulls the changes, updates
+the crontab, and restarts the server by running "script/start".  (See
+script/root/cycle-daemon for details.)
+
+Some tasks (such as installing new Debian packages) must be done manually by
+a system administrator, but the idea is to let others maintain the repository
+with as little administrator intervention as possible.
+
+How can I help?
+---------------
+
+The best way to help is to fork the GitHub repository at
+<http://github.com/dlitz/opendatanow>, push your changes, then send us a pull
+request.
+
+- **Contribute screen scrapers.** More screen scrapers means more data
+  available for everyone in the community.
+- **Contribute data transformations.** Data in XML when you prefer JSON?
+  Write a translator.
+- **Write automated tests.** Right now, we have no way of knowing when a
+  scraper stops working.  Automated testing would helps us a lot.
+- **Write documentation.** The documentation for OpenDataNow is pretty sketchy
+  right now.
+- **Make web pages.** The OpenDataNow website is basically non-existant at
+  this point.  It could use improvement.
+- **Get others involved.** We need all the help we can get.
+
+
+Who's behind this?
+------------------
+
+- [Dwayne C. Litzenberger](http://www.dlitz.net/)
+- *Your name here*
 
 Is this legal?
 --------------
@@ -31,9 +75,10 @@ Ottawa](http://www.opendataottawa.ca/), a grassroots organization that will be
 launching Ottawa's first open data hackfest on April 24, 2010.  Coinciding
 with the hackfest, the City of Ottawa will begin releasing their data to the
 public in formats suitable for re-use.  The idea is that, eventually, most
-city data will be made public in a manner similar to http://data.gov/ in the
+city data will be made public in a manner similar to <http://data.gov/> in the
 U.S.  In the meantime, the community has received permission to scrape City of
-Ottawa data ourselves.
+Ottawa data ourselves.  (At least, that's what was announced at the last Open
+Data Ottawa event.)
 
 
 Copyright (for the scrapers)
