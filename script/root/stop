@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "Deleting user's crontab ..."
+crontab -u repo -r
+
 echo "Invoking stop script ..."
 su - repo -c "cd ~/work && script/stop" || true
 
