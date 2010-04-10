@@ -7,3 +7,5 @@ git clean -dfx
 git pull --ff-only --all
 git reset --hard
 git clean -dfx
+
+ln -sT ../repo ./repo
