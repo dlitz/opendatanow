@@ -2,7 +2,7 @@
 # Main scraper script
 set -e		# Abort on errors
 
-mkdir -p repo/raw
+mkdir -p repo
 mkdir -p tmp
 TMPDIR=`pwd`/tmp
 export TMPDIR
@@ -10,3 +10,6 @@ export TMPDIR
 ls process.d/[0-9]* | sort -n | while read -r script ; do
     "$script" || true
 done
+
+# Remove empty directories
+find repo -type d -depth -print0 | xargs -0 rmdir --ignore-fail-on-non-empty
