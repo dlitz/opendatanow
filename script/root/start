@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Invoking start script ..."
+exec su - repo -c "cd ~/work && script/start"

@@ -1,0 +1,11 @@
+#!/bin/bash
+set -e
+
+echo "Invoking stop script ..."
+su - repo -c "cd ~/work && script/stop" || true
+
+echo "Sending processes the TERM signal ..."
+killall -TERM -u repo && sleep 5
+
+echo "Sending processes the KILL signal ..."
+killall -KILL -u repo || true

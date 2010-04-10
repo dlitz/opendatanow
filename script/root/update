@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+echo "Updating repository ..."
+exec su - repo -c "cd ~/work && script/update"
