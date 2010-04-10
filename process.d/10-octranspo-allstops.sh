@@ -36,4 +36,20 @@ EOF
     mv -f tmp/octranspo-allstops.xml.gz repo/octranspo/allstops.xml.gz
 fi
 
+# Convert XML to CSV
+if ! [ -f repo/octranspo/allstops.csv.gz ] || [ repo/octranspo/allstops.csv.gz -ot repo/octranspo/allstops.xml ] ; then
+    # Convert to CSV
+    support/octranspo-allstops-to-csv.py repo/octranspo/allstops.xml > tmp/octranspo-allstops.csv
+
+    # compress using gzip
+    gzip -9c tmp/octranspo-allstops.csv > tmp/octranspo-allstops.csv.gz
+
+    # Give the translated files the same timestamp as repo/octranspo/allstops.xml
+    touch --date="`stat -c '%y'  repo/octranspo/allstops.xml`" tmp/octranspo-allstops.csv tmp/octranspo-allstops.csv.gz
+
+    # Move into place
+    mv -f tmp/octranspo-allstops.csv repo/octranspo/allstops.csv
+    mv -f tmp/octranspo-allstops.csv.gz repo/octranspo/allstops.csv.gz
+fi
+
 # vim:set ts=4 sw=4 sts=4 expandtab tw=0:
