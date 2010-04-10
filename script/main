@@ -1,0 +1,12 @@
+#!/bin/sh
+# Main scraper script
+set -e		# Abort on errors
+
+mkdir -p repo/raw
+mkdir -p tmp
+TMPDIR=`pwd`/tmp
+export TMPDIR
+
+ls process.d/[0-9]* | sort -n | while read -r script ; do
+    "$script" || true
+done
