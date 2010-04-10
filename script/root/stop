@@ -2,7 +2,7 @@
 set -e
 
 echo "Deleting user's crontab ..."
-crontab -u repo -r
+crontab -u repo -r || true
 
 echo "Invoking stop script ..."
 su - repo -c "cd ~/work && script/stop" || true
