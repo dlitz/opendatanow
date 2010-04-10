@@ -1,0 +1,7 @@
+#!/bin/sh
+exec 2>&1
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/X11
+export PATH
+set -e
+cd /root/odn-scripts
+exec ./cycle-daemon
