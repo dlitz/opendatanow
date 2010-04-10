@@ -1,6 +1,12 @@
 #!/usr/bin/env python
-open("/tmp/opendatanow-trigger-fifo", "r+").close()
+import os
+if os.environ.get("REQUEST_METHOD') == "POST":
+	open("/tmp/opendatanow-trigger-fifo", "r+").close()
 
-print "Content-type: text/html; charset=UTF-8"
-print ""
-print "OK"
+	print "Content-type: text/html; charset=UTF-8"
+	print ""
+	print "OK"
+else:
+	print "Content-type: text/html; charset=UTF-8"
+	print ""
+	print "Nothing done."
