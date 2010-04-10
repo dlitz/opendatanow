@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+if ! [ -e /tmp/opendatanow-trigger-fifo ] ; then
+    mkfifo -m0660 /tmp/opendatanow-trigger-fifo
+    chgrp www-data /tmp/opendatanow-trigger-fifo
+fi
+
+while true ; do
+    cat /tmp/opendatanow-trigger-fifo
+    ./cycle
+done

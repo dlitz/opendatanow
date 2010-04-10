@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+open("/tmp/opendatanow-trigger-fifo", "r+").close()
+
+print "Content-type: text/html; charset=UTF-8"
+print ""
+print "OK"
