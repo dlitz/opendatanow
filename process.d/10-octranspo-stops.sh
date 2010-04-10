@@ -52,4 +52,20 @@ if ! [ -f repo/octranspo/stops.csv.gz ] || [ repo/octranspo/stops.csv.gz -ot rep
     mv -f tmp/octranspo-stops.csv.gz repo/octranspo/stops.csv.gz
 fi
 
+# Convert XML to JSON
+if ! [ -f repo/octranspo/stops.json.gz ] || [ repo/octranspo/stops.json.gz -ot repo/octranspo/stops.xml ] ; then
+    # Convert to CSV
+    support/octranspo-stops-to-json.py repo/octranspo/stops.xml > tmp/octranspo-stops.json
+
+    # compress using gzip
+    gzip -9c tmp/octranspo-stops.json > tmp/octranspo-stops.json.gz
+
+    # Give the translated files the same timestamp as repo/octranspo/stops.xml
+    touch --date="`stat -c '%y'  repo/octranspo/stops.xml`" tmp/octranspo-stops.json tmp/octranspo-stops.json.gz
+
+    # Move into place
+    mv -f tmp/octranspo-stops.json repo/octranspo/stops.json
+    mv -f tmp/octranspo-stops.json.gz repo/octranspo/stops.json.gz
+fi
+
 # vim:set ts=4 sw=4 sts=4 expandtab tw=0:
