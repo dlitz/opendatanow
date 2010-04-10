@@ -1,3 +1,6 @@
 #!/bin/sh
+echo "Loading the user's new crontab ..."
+su - repo -c "cd ~/work && crontab crontab"
+
 echo "Invoking start script ..."
 exec su - repo -c "cd ~/work && script/start"

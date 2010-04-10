@@ -1,7 +1,4 @@
 #!/bin/sh
 set -e		# Abort on errors
 
-# Load the new crontab
-crontab crontab
-
 true
