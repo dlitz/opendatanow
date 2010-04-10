@@ -8,4 +8,5 @@ fi
 while true ; do
     cat /tmp/opendatanow-trigger-fifo
     ./cycle
+    sleep 1
 done
