@@ -6,7 +6,7 @@ if ! [ -e /tmp/opendatanow-trigger-fifo ] ; then
 fi
 
 while true ; do
-    ./cycle
+    ./cycle || true
     cat /tmp/opendatanow-trigger-fifo		# Wait for another update FIXME - race condition
     sleep 3
 done
