@@ -1,3 +1,7 @@
 RewriteBase /opendatanow/
 
-RewriteRule ^octranspo/stop-times/?$ http://www.gtfs-data-exchange.com/agency/oc-transpo/
+RewriteEngine on
+
+RewriteRule ^octranspo/stop-times/?$ http://www.gtfs-data-exchange.com/agency/oc-transpo/ [R]
+
+# vim:set tw=0:
