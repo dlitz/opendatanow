@@ -1,4 +1,5 @@
 #!/bin/sh
+# Script to update the git working copy
 set -e
 git reset --hard
 git clean -dfx

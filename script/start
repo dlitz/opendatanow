@@ -1,4 +1,5 @@
 #!/bin/sh
+# Stuff to run on startup
 set -e		# Abort on errors
 
 true

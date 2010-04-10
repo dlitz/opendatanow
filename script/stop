@@ -1,2 +1,4 @@
 #!/bin/sh
+# Stuff to run on shutdown (not guaranteed)
+
 true
